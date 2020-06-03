@@ -54,3 +54,13 @@ class BlueAir:
                 "uuid": f"{uuid}"
             }
         self._post(f"/v2/device/{uuid}/attribute/fanspeed/", data)
+        
+    def set_led(self, uuid, level):
+        data = {
+                "currentValue": f"{level}",
+                "scope": "device",
+                "defaultValue": f"{level}",
+                "name": "brightness",
+                "uuid": f"{uuid}"
+            }
+        self._post(f"/v2/device/{uuid}/attribute/brightness/", data)
